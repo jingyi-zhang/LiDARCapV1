@@ -1,0 +1,54 @@
+DEVICE: 'cuda'
+TRAIN:
+  GEN:
+    LR: 0.0001
+    WD: 0.0001
+    factor: 0.9
+    patience: 1
+    threshold: 0.01
+    min_lr: 0.00000003
+    metrics: 'train.mean_loss_param'
+  with_body_label: False
+  segment_parallel: True
+  CosineAnnealingWarmRestarts: False
+  use_drop_first: False
+  use_denoice: False
+  use_replace_noice: True
+
+MODEL:
+  use_seg_feature: True
+
+LOSS:
+  use_seg_loss: True
+  
+TrainDataset:
+  dataset_path: '/SAMSUMG8T/mqh/lidarcapv2/dataset'
+  use_aug: False
+  use_rot: False
+  use_straight: False
+  use_pc_w_raw_z: False
+  ret_raw_pc: False
+  seqlen: 16
+  drop_first_n: 0
+  use_trans_to_normalize: False
+
+  dataset_ids:
+    - 61109
+    - 61704
+    - 61803
+    - 61805
+
+TestDataset:
+  dataset_path: '/SAMSUMG8T/mqh/lidarcapv2/dataset'
+  use_aug: False
+  use_rot: False
+  use_straight: False
+  use_pc_w_raw_z: False
+  ret_raw_pc: False
+  seqlen: 16
+  drop_first_n: 0
+  use_trans_to_normalize: False
+
+  dataset_ids:
+    - 61107
+

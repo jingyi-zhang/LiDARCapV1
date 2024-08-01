@@ -1,0 +1,104 @@
+DEVICE: 'cuda'
+TRAIN:
+  GEN:
+    LR: 0.0001
+    WD: 0.0001
+    factor: 0.9
+    patience: 1
+    threshold: 0.01
+    min_lr: 0.00000003
+    metrics: 'train.mean_loss_param'
+  with_body_label: False
+  segment_parallel: True
+  CosineAnnealingWarmRestarts: False
+  use_drop_first: True
+  use_denoice: False
+  use_replace_noice: True
+
+MODEL:
+  PointNet2RegressorLight: True
+  use_seg_feature: True
+  proj_joint_feature: True
+  dropout_joint_feature: False
+
+LOSS:
+  use_seg_loss: True
+  use_joints_loss: True
+  
+TrainDataset:
+  dataset_path: 'your_data_path'
+  use_aug: False
+  use_rot: False
+  use_straight: False
+  use_pc_w_raw_z: False
+  ret_raw_pc: False
+  seqlen: 16
+  drop_first_n: 0
+  use_trans_to_normalize: True
+
+  dataset_ids:
+    - 51801
+    - 51802
+    - 51803
+    - 51808
+    - 51807
+    - 61102
+    - 61103
+    - 61105
+    - 61108
+    - 61109
+    - 61201
+    - 61202
+    - 61203
+    - 61206
+    - 61207
+    - 61210
+    - 61212
+    - 61213
+    - 61301
+    - 61302
+    - 61304
+    - 61305
+    - 61306
+    - 61307
+    - 61704
+    - 61705
+    - 61706
+    - 61707
+    - 61708
+    - 61709
+    - 61711
+    - 61714
+    - 61801
+    - 61802
+    - 61803
+    - 61804
+    - 61805
+    - 61808
+    - 51809
+    - 51804
+    - 51812
+    - 51810
+
+TestDataset:
+  dataset_path: 'your_data_path'
+  use_aug: False
+  use_rot: False
+  use_straight: False
+  use_pc_w_raw_z: False
+  ret_raw_pc: False
+  seqlen: 16
+  drop_first_n: 0
+  use_trans_to_normalize: True
+
+  dataset_ids:
+    - 61107
+    - 61101
+    - 61204
+    - 61209
+    - 61303
+    - 61702
+    - 61713
+    - 61807
+    - 61806
+    - 61106
