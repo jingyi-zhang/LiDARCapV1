@@ -1,5 +1,8 @@
 # Download LiDARHuman51M dataset
-- Download the dataset and weight file from the link: http://www.lidarhumanmotion.net/lidarcap/.
+- Download the dataset and weight file from the link: http://www.lidarhumanmotion.net/lidarcap/. The process is:
+  Send an e-mail to yanmnn@stu.xmu.edu.cn, including contact details (title, full name, organization, and country) and the purpose of downloading the dataset.
+  By sending the e-mail you accept the following License.
+
 - Download `basicModel_neutral_lbs_10_207_0_v1.0.0.pkl`,`J_regressor_extra.npy` from link: https://smpl.is.tue.mpg.de/
 and set path in `utils/config.py`.
 
